@@ -30,8 +30,8 @@ examples/<name>/
 
 ## The backlog (ranked)
 
-1. **Product quickstarts** — Sandbox · Runners · Code Reviewer.
-2. **Framework cookbooks** — Eve (done, the template) · LangChain · CrewAI · smolagents · OpenAI Agents SDK. Each mirrors a row on the be-the-backend integration list.
+1. **Product quickstarts** — Sandbox (done: run-code-in-a-sandbox) · Runners · Code Reviewer.
+2. **Framework cookbooks** — LangChain · CrewAI · smolagents · OpenAI Agents SDK · Eve (shipped). Each mirrors a row on the be-the-backend integration list.
 3. **Migration guides** — E2B → Tenki · Modal → Tenki · Daytona → Tenki (feeds the Startup Program switcher campaign).
 4. **Use-cases** — build an AI coding agent · batch-eval a model in disposable sandboxes · CI for AI-generated code (run → test → review).
 5. **MCP** — give Claude / Cursor a Tenki sandbox.

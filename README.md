@@ -14,17 +14,18 @@ A cookbook with broken examples is worse than no cookbook. This is the bar; see 
 
 | Example | What it shows |
 |---|---|
-| [eve-agent-on-tenki](examples/eve-agent-on-tenki/) | Pin a Vercel **Eve** agent's sandbox to a Tenki microVM in one line |
+| [run-code-in-a-sandbox](examples/run-code-in-a-sandbox/) | Boot a disposable microVM, run code, get the output, tear it down — the core loop |
+| [eve-agent-on-tenki](examples/eve-agent-on-tenki/) | Run a Vercel Eve agent's sandbox on Tenki (one of several framework cookbooks) |
 
-*(More landing here — framework cookbooks, migration guides, use-cases. See the backlog in CONTRIBUTING.md.)*
+*(More landing here — MCP, more framework cookbooks (LangChain, CrewAI, smolagents), migration guides, use-cases. See the backlog in [CONTRIBUTING.md](CONTRIBUTING.md).)*
 
 ## Run an example
 
 ```bash
-cd examples/eve-agent-on-tenki
+cd examples/run-code-in-a-sandbox
 npm install
-export TENKI_API_KEY=tk_your_key_here   # or: tenki login
-node verify.mjs
+export TENKI_AUTH_TOKEN=...   # from `tenki login`
+node run.mjs
 ```
 
 ## Verify everything
