@@ -1,41 +1,66 @@
 # Contributing to the Tenki Cookbook
 
-This repo is the examples/cookbook layer for Tenki. If you're the person maintaining it, this is your playbook.
+This is the examples/cookbook layer for Tenki, and this is your playbook. New here? Read this top to bottom once, then you're set.
 
-## The bar (non-negotiable)
+## Setup (5 minutes)
 
-**Every example must run on Tenki and prove it in CI.** No exceptions. A public example that doesn't work damages the brand more than a missing one helps it. The mechanism:
+1. **Get a Tenki account + key.** Install the CLI and run `tenki login` — it writes your token and default project/workspace to `~/.config/tenki/config.yaml`. The examples read from there automatically.
+2. **Node 20+.**
+3. **Run an example to confirm your setup works:**
+   ```bash
+   cd examples/run-code-in-a-sandbox
+   npm install
+   node verify.mjs        # ✓ create → exec python3 → 42 → dispose
+   ```
+   If that prints a ✓, you're ready.
 
-- Each example directory ships a **`verify.mjs`** that exercises the example against the live Tenki API and **exits non-zero if anything fails**.
-- CI runs every `verify.mjs` (see `.github/workflows/verify.yml`) with a `TENKI_API_KEY` secret. A red build blocks the merge.
+## The one rule (non-negotiable)
+
+**Every example runs on Tenki and proves it in CI.** A public example that doesn't work damages the brand more than a missing one helps.
+
+- Each example ships a **`verify.mjs`** that exercises it against the live Tenki API and **exits non-zero on any failure**.
+- CI (`.github/workflows/verify.yml`) runs every `verify.mjs` with a `TENKI_API_KEY` secret. A red build blocks the merge.
+- `verify.mjs` proves the *Tenki-facing* part. If an example needs an LLM (an agent turn), verify the tool/backend against Tenki directly — don't require a model key in CI. (See `langchain-code-interpreter` and `eve-agent-on-tenki` for the pattern.)
+
+## What to build
+
+The full backlog, ranked, is in **[ROADMAP.md](ROADMAP.md)**. Start with the **Start here** list. Each item names the shipped example to copy the pattern from.
 
 ## Anatomy of an example
 
 ```
 examples/<name>/
   README.md        # the tutorial — what it does, the whole integration, how to run
-  package.json     # deps (type: module)
+  package.json     # deps ("type": "module")
   verify.mjs       # CI-runnable proof it works against Tenki
-  <code>           # the actual example (agent/, src/, a script, …)
+  <code>           # the example itself (a script, agent/, tool + agent, …)
 ```
 
-`verify.mjs` reads the token from `TENKI_API_KEY` (CI) or `~/.config/tenki/config.yaml` (local `tenki login`), drives the Tenki-facing code, asserts the result, and cleans up (terminate any sandbox it created). Keep it under ~60 lines.
+`verify.mjs` reads the token from `TENKI_AUTH_TOKEN` / `TENKI_API_KEY` (CI) or `~/.config/tenki/config.yaml` (local), drives the Tenki-facing code, asserts the result, and cleans up any sandbox it created. Keep it under ~60 lines. Copy one from a shipped example.
+
+**Which template to copy:**
+- Direct SDK use → **`run-code-in-a-sandbox`**
+- A framework agent + a code-execution tool → **`langchain-code-interpreter`**
+- A pluggable sandbox backend for a framework → **`eve-agent-on-tenki`**
+
+## Adding an example — step by step
+
+1. `cp -r` the closest template to `examples/<your-name>/`.
+2. Swap in your code; keep it to one clear thing.
+3. Write `verify.mjs` — assert the Tenki-facing result, clean up.
+4. Run it: `node verify.mjs` → must print ✓.
+5. Write the `README.md` (the tutorial) — link back to `tenki.cloud`, name the products used.
+6. Add a row to the repo `README.md` examples table and flip its status in `ROADMAP.md`.
+7. Open the PR. CI runs your `verify.mjs`.
+8. Write the companion article (the example is the code; the article is the walkthrough).
 
 ## Style
 
 - **Short and runnable beats comprehensive.** One clear thing per example.
-- Every example README links back to `tenki.cloud` and names the products it uses.
-- Tenki confines file I/O to `/home/tenki` — use relative paths in examples.
-- The example is the canonical code; the companion blog article is the walkthrough.
+- Name the Tenki products used; link back to `tenki.cloud`.
+- Tenki confines file I/O to `/home/tenki` — use relative paths.
+- Note any gotchas inline (e.g. `exec(cmd, { args })` doesn't shell-split; `allowOutbound: true` is needed for network).
 
-## The backlog (ranked)
+## Review flow
 
-1. **Product quickstarts** — Sandbox (done: run-code-in-a-sandbox) · Runners · Code Reviewer.
-2. **Framework cookbooks** — LangChain (done) · CrewAI · smolagents · OpenAI Agents SDK · Eve (done). Each mirrors a row on the be-the-backend integration list.
-3. **Migration guides** — E2B → Tenki · Modal → Tenki · Daytona → Tenki (feeds the Startup Program switcher campaign).
-4. **Use-cases** — build an AI coding agent · batch-eval a model in disposable sandboxes · CI for AI-generated code (run → test → review).
-5. **MCP** — give Claude / Cursor a Tenki sandbox.
-
-## Flow
-
-Draft → Colin reviews (+ an engineer spot-checks accuracy) → publish. Pull the next item off the backlog and ship it.
+Draft → content review (+ an engineer spot-checks technical accuracy) → publish. Then pick the next item off [ROADMAP.md](ROADMAP.md) and ship it.

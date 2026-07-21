@@ -35,6 +35,10 @@ node run.mjs
 npm run verify        # runs every examples/*/verify.mjs
 ```
 
+## Contributing
+
+New examples welcome. Start with **[CONTRIBUTING.md](CONTRIBUTING.md)** (setup + how to add one) and **[ROADMAP.md](ROADMAP.md)** (the ranked backlog — pick from "Start here"). The one rule: every example runs on Tenki and proves it in CI.
+
 ## Related
 
 - [tenki-mcp](https://github.com/opencolin/tenki-mcp) — Tenki as an MCP server for any agent
