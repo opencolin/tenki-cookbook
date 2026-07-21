@@ -1,0 +1,31 @@
+name: verify
+
+# Every example must run against the live Tenki API. A red build blocks the merge.
+# Requires repo secret TENKI_API_KEY. Examples that depend on an npm package not yet
+# published (e.g. tenki-eve-sandbox pre-publish) will fail their `npm install` step
+# until that package is on npm — expected until first publish.
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install + verify each example against Tenki
+        env:
+          TENKI_API_KEY: ${{ secrets.TENKI_API_KEY }}
+        run: |
+          set -e
+          for d in examples/*/; do
+            if [ -f "${d}verify.mjs" ]; then
+              echo "== ${d} =="
+              ( cd "$d" && npm install --no-audit --no-fund && node verify.mjs )
+            fi
+          done
