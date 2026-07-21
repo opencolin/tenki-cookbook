@@ -49,11 +49,13 @@ Full list: the [tenki-mcp README](https://github.com/opencolin/tenki-mcp#tools).
 
 ## Verify
 
-`verify.mjs` proves the whole path end-to-end the way an MCP client does: it spawns the server, lists its tools, and calls `tenki_run_code` to run Python in a **real microVM**, asserting the output.
+`verify.mjs` proves the whole path the way an MCP client does: it spawns the server, lists its tools, and drives a **real sandbox lifecycle** (create → get → terminate) through MCP tool calls against live Tenki.
 
 ```bash
 npm install
 node verify.mjs        # needs TENKI_API_KEY (or `tenki login`)
 # → ✓ connected — 84 tools advertised
-# → ✓ tools/list → tenki_run_code (python) → "42" in a live microVM
+# → ✓ tenki_create_sandbox → …  ✓ tenki_get_sandbox → …  ✓ tenki_terminate_sandbox
 ```
+
+It also attempts `tenki_run_code` as a bonus. That one additionally needs Tenki's per-session **data-plane** endpoint reachable from your network (it stages the code file there), so it's best-effort — reported as skipped, not failed, if the data plane isn't reachable from where you're running.

@@ -20,7 +20,7 @@ The highest-value, fully self-contained next examples — no unpublished deps, b
 | 2 | **CrewAI + Tenki** | Popular multi-agent framework; a crew that runs code in a sandbox | `langchain-code-interpreter` |
 | 3 | **smolagents + Tenki** | HuggingFace `CodeAgent` with a Tenki executor; high reach | `langchain-code-interpreter` |
 | 4 | **E2B → Tenki migration guide** | Arms the Startup-Program switcher pitch; side-by-side code | `run-code-in-a-sandbox` |
-| 5 | **Give Claude / Cursor a Tenki sandbox (MCP)** | The broadest integration — any MCP agent | new (config + `tenki-mcp`) |
+| 5 | **Give Claude / Cursor a Tenki sandbox (MCP)** | The broadest integration — any MCP agent | ✅ shipped → `mcp-tenki-sandbox` |
 | 6 | **Runners quickstart** | The one-line CI swap; a sample workflow file | new (docs + workflow) |
 
 ## Full backlog
@@ -68,7 +68,7 @@ The highest-value, fully self-contained next examples — no unpublished deps, b
 ### MCP
 | Example | What it shows | Status |
 |---|---|---|
-| Give Claude / Cursor a Tenki sandbox | `tenki-mcp` config + "ask your agent to run code" | 🔜 |
+| Give Claude / Cursor a Tenki sandbox | `tenki-mcp` config + "ask your agent to run code" | ✅ `mcp-tenki-sandbox` |
 
 ### Language coverage
 | Example | What it shows | Status |
