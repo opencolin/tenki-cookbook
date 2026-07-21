@@ -21,6 +21,19 @@ A cookbook with broken examples is worse than no cookbook. This is the bar; see 
 
 *(More landing here — more framework cookbooks (CrewAI, smolagents), migration guides, use-cases. See the backlog in [CONTRIBUTING.md](CONTRIBUTING.md).)*
 
+## Official integrations
+
+First-party Tenki integrations that ship as their own packages on [github.com/tenkicloud](https://github.com/tenkicloud) — install and use them directly:
+
+| Integration | Install | What it does |
+|---|---|---|
+| [Composio tools](https://github.com/TenkiCloud/composio-tools) | `npm i @tenkicloud/composio-tools` | Gives any [Composio](https://composio.dev) agent Tenki sandbox tools (create · exec · snapshot · terminate), in-process — no extra backend |
+| [Covalent executor](https://github.com/TenkiCloud/covalent-tenki-plugin) | `pip install covalent-tenki-plugin` | A [Covalent](https://github.com/AgnostiqHQ/covalent) executor that runs each workflow task in a disposable Tenki microVM |
+| [GitHub Actions](https://github.com/TenkiCloud/actions) | `uses: TenkiCloud/actions/setup-cli@v1` | First-party Actions: install the `tenki` CLI on a runner, build sandbox templates from `.tenki/template.json` in CI |
+| [Go SDK](https://github.com/TenkiCloud/tenki-sdk-go) | `go get github.com/TenkiCloud/tenki-sdk-go/sandbox` | Go client for the Tenki Sandbox API |
+
+*(Walkthrough examples that build on these are on the [ROADMAP](ROADMAP.md).)*
+
 ## Run an example
 
 ```bash

@@ -33,6 +33,7 @@ The highest-value, fully self-contained next examples — no unpublished deps, b
 | Expose a port / preview URL | Run a web server in a sandbox, get a public URL | `run-code-in-a-sandbox` | 📋 |
 | Snapshots & pause/resume | Save state, resume a sandbox later | `run-code-in-a-sandbox` | 📋 |
 | Runners quickstart | One-line `runs-on:` swap, sample workflow | new | 🔜 |
+| Build a sandbox template in CI | GitHub Action builds `.tenki/template.json` — **official `TenkiCloud/actions` exists** | new | 🔜 |
 | Code Reviewer quickstart | Add AI review to a repo; what a review looks like | new | 📋 |
 
 ### Framework cookbooks
@@ -43,6 +44,7 @@ The highest-value, fully self-contained next examples — no unpublished deps, b
 | LangChain (JS) | Code-interpreter agent | — | ✅ |
 | LangChain (Python) | Same, Python | `langchain-code-interpreter` | 🔜 |
 | CrewAI | Crew with a Tenki code tool | `langchain-code-interpreter` | 🔜 |
+| **Composio** | Agent with Tenki sandbox tools — **official `@tenkicloud/composio-tools` exists**, wrap it | `langchain-code-interpreter` | 🔜 |
 | smolagents | `CodeAgent` with a Tenki executor | `langchain-code-interpreter` | 🔜 |
 | OpenAI Agents SDK | Code-execution tool | `langchain-code-interpreter` | 📋 |
 | Vercel Eve | Tenki sandbox backend | — | ✅ |
@@ -61,6 +63,7 @@ The highest-value, fully self-contained next examples — no unpublished deps, b
 | Use-case | What it shows | Template | Status |
 |---|---|---|---|
 | Build an AI coding agent | write → run → iterate in a sandbox | `langchain-code-interpreter` | 📋 |
+| **Covalent workflows on Tenki** | each task/electron in a disposable microVM — **official `covalent-tenki-plugin` exists**, wrap it | `run-code-in-a-sandbox` | 🔜 |
 | Batch model-eval | fan out N disposable sandboxes | `run-code-in-a-sandbox` | 📋 |
 | CI for AI-generated code | run → test → review (our differentiated opinion) | `run-code-in-a-sandbox` | 📋 |
 | Data-analysis agent | code interpreter over a CSV | `langchain-code-interpreter` | 📋 |
@@ -74,7 +77,7 @@ The highest-value, fully self-contained next examples — no unpublished deps, b
 | Example | What it shows | Status |
 |---|---|---|
 | Run code (Python) | The core loop, Python | 🔜 |
-| Run code (Go) | The core loop, Go | 📋 |
+| Run code (Go) | The core loop, Go — **official `tenki-sdk-go` exists**, build on it | 📋 |
 
 ## Notes & dependencies
 - **`langchain-code-interpreter`, `run-code-in-a-sandbox`** use only published packages (LangChain + `@tenkicloud/sandbox`) — self-contained, work today.
