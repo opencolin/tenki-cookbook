@@ -44,7 +44,7 @@ The highest-value, fully self-contained next examples — no unpublished deps, b
 | LangChain (JS) | Code-interpreter agent | — | ✅ |
 | LangChain (Python) | Same, Python | `langchain-code-interpreter` | 🔜 |
 | CrewAI | Crew with a Tenki code tool | `langchain-code-interpreter` | 🔜 |
-| **Composio** | Agent with Tenki sandbox tools — **official `@tenkicloud/composio-tools` exists**, wrap it | `langchain-code-interpreter` | 🔜 |
+| **Composio** | Agent with Tenki sandbox tools (official `@tenkicloud/composio-tools`) | — | ✅ `composio-tenki` |
 | smolagents | `CodeAgent` with a Tenki executor | `langchain-code-interpreter` | 🔜 |
 | OpenAI Agents SDK | Code-execution tool | `langchain-code-interpreter` | 📋 |
 | Vercel Eve | Tenki sandbox backend | — | ✅ |
@@ -82,5 +82,6 @@ The highest-value, fully self-contained next examples — no unpublished deps, b
 ## Notes & dependencies
 - **`langchain-code-interpreter`, `run-code-in-a-sandbox`** use only published packages (LangChain + `@tenkicloud/sandbox`) — self-contained, work today.
 - **`eve-agent-on-tenki`** and the **MCP** example install `tenki-eve-sandbox` / `tenki-mcp`, which are on GitHub but **not yet on npm** — those go fully `npm install`-clean (and green in CI) once we publish.
+- **`composio-tenki`** installs clean (all three deps — `@composio/core`, `@tenkicloud/composio-tools`, `@anthropic-ai/sdk` — are on npm), but its `verify.mjs` needs **`COMPOSIO_API_KEY`** as a CI secret in addition to the Tenki token. Wire that secret before it goes green.
 - **Python examples** need the CI harness extended to run `verify.py` (currently Node-only) — small change to `scripts/run-all.mjs` + the workflow. Flag it in the first Python PR.
 - Anything needing the network (`pip install`, scraping) needs `allowOutbound: true` at create — note it in the example.

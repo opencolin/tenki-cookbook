@@ -1,0 +1,2 @@
+tenki-sandbox>=0.4
+crewai>=0.80

@@ -18,6 +18,7 @@ A cookbook with broken examples is worse than no cookbook. This is the bar; see 
 | [langchain-code-interpreter](examples/langchain-code-interpreter/) | A LangChain agent that writes and runs code in a Tenki sandbox |
 | [eve-agent-on-tenki](examples/eve-agent-on-tenki/) | Run a Vercel Eve agent's sandbox on Tenki |
 | [mcp-tenki-sandbox](examples/mcp-tenki-sandbox/) | Give Claude / Cursor a Tenki sandbox via the `tenki-mcp` MCP server (84 tools) |
+| [composio-tenki](examples/composio-tenki/) | A Composio agent that runs code in a Tenki sandbox, via the official `@tenkicloud/composio-tools` toolkit |
 
 *(More landing here — more framework cookbooks (CrewAI, smolagents), migration guides, use-cases. See the backlog in [CONTRIBUTING.md](CONTRIBUTING.md).)*
 
