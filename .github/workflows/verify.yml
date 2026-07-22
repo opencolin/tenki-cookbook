@@ -18,6 +18,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"   # Python examples (crewai) need 3.10+
       - name: Install + verify each example against Tenki
         env:
           TENKI_API_KEY: ${{ secrets.TENKI_API_KEY }}
@@ -26,6 +29,9 @@ jobs:
           for d in examples/*/; do
             if [ -f "${d}verify.mjs" ]; then
               echo "== ${d} =="
-              ( cd "$d" && npm install --no-audit --no-fund && node verify.mjs )
+              ( cd "$d"
+                [ -f package.json ] && npm install --no-audit --no-fund
+                [ -f requirements.txt ] && python -m pip install -r requirements.txt
+                node verify.mjs )
             fi
           done
