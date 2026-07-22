@@ -24,16 +24,34 @@ jobs:
       - name: Install + verify each example against Tenki
         env:
           TENKI_API_KEY: ${{ secrets.TENKI_API_KEY }}
+          # Third-party keys some examples need. Unset → that example is skipped,
+          # not failed (see .verify-requires below).
+          COMPOSIO_API_KEY: ${{ secrets.COMPOSIO_API_KEY }}
         run: |
-          set -e
-          # benchmarks/ hold heavier recipes (real eval images) but obey the same
-          # one rule: a verify.mjs that proves the Tenki-facing part in CI.
+          # One example must not abort the rest (the runner shell is `bash -e`, so a
+          # single failure would otherwise kill the whole job). We run every verify,
+          # SKIP an example only when a key it declares in `.verify-requires` is unset,
+          # and fail the job iff a *runnable* example fails. benchmarks/ obey the same
+          # one rule as examples/ — a verify.mjs proving the Tenki-facing part.
+          fails=""; skips=""
           for d in examples/*/ benchmarks/*/; do
-            if [ -f "${d}verify.mjs" ]; then
-              echo "== ${d} =="
-              ( cd "$d"
-                [ -f package.json ] && npm install --no-audit --no-fund
-                [ -f requirements.txt ] && python -m pip install -r requirements.txt
-                node verify.mjs )
+            [ -f "${d}verify.mjs" ] || continue
+            # Skip if any third-party key this example declares as required is unset.
+            miss=""
+            if [ -f "${d}.verify-requires" ]; then
+              while IFS= read -r var || [ -n "$var" ]; do
+                [ -z "$var" ] && continue
+                [ -z "${!var}" ] && { miss="$var"; break; }
+              done < "${d}.verify-requires"
             fi
+            if [ -n "$miss" ]; then
+              echo "== ${d} == SKIP (${miss} unset)"; skips="${skips} ${d}"; continue
+            fi
+            echo "== ${d} =="
+            if ( cd "$d"
+                 [ -f package.json ] && npm install --no-audit --no-fund
+                 [ -f requirements.txt ] && python -m pip install -r requirements.txt
+                 node verify.mjs ); then :; else fails="${fails} ${d}"; fi
           done
+          echo; echo "skipped:${skips:- none}"; echo "failed:${fails:- none}"
+          [ -z "$fails" ] || { echo "::error::runnable examples failed:${fails}"; exit 1; }
