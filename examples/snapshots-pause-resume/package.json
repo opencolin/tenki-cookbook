@@ -1,0 +1,9 @@
+{
+  "name": "snapshots-pause-resume",
+  "private": true,
+  "type": "module",
+  "description": "Cookbook example — pause a Tenki sandbox (memory + disk snapshot), resume it, and prove the filesystem persisted.",
+  "dependencies": {
+    "@tenkicloud/sandbox": "^0.4.0"
+  }
+}

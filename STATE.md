@@ -9,11 +9,13 @@ _Last updated: Jul 21, 2026 (orchestration run kicked off)._
 - **CI harness** (`.github/workflows/verify.yml`): runs each example's `verify.mjs`; now also `pip install -r requirements.txt` + sets up Python 3.12 for Python examples.
 - **Release plan:** `RELEASE-PLAN.md` (v0.6 → v2). **Ranked backlog:** `ROADMAP.md`.
 
-## In flight (this orchestration)
-A `cookbook-buildout` workflow is running:
-1. **Council** (3 PM subagents: reach / effort / strategic-fit lenses) → reconcile the release plan.
-2. **Build** (worktree-isolated builders) → the **v0.6 self-contained quickstarts**: `files-in-a-sandbox`, `expose-a-port`, `snapshots-pause-resume`, `e2b-to-tenki-migration`. Each: create `examples/<name>/` per `CONTRIBUTING.md`, verify against live Tenki, return files + result.
-- On completion: merge passing examples into `examples/`, update the README table + `ROADMAP.md` status, commit, and update this file.
+## Last orchestration — ✅ COMPLETE (Jul 21)
+The `cookbook-buildout` workflow (8 agents, 0 errors) ran:
+1. **Council** (3 PM lenses + synthesis) → the v0.6→v2 plan now in `RELEASE-PLAN.md`.
+2. **Build** (worktree builders) → **all 4 v0.6 quickstarts shipped**: `files-in-a-sandbox`, `expose-a-port`, `snapshots-pause-resume`, `e2b-to-tenki-migration` — each **re-verified against live Tenki independently before merge** (all PASS), added to `examples/`, README table + `ROADMAP.md` flipped to ✅.
+
+## Next up — v0.7 (per the council plan)
+`vercel-ai-sdk` (⭐ highest reach — reuses `tenki-eve-sandbox`'s session interface; inline the adapter so it doesn't wait on npm) → `run-code-python` (proves the Python `verify` path) → `langchain-python` → `smolagents`. Then v0.8 broadens the framework/migration matrix; v0.9 is the multi-step use-cases; v1.0 clears the npm-publish + `COMPOSIO_API_KEY` blockers and goes all-green; v2.0 is depth (OpenHands runtime, Go, streaming).
 
 ## The bar (do not weaken)
 Every example ships a `verify.mjs` that runs against **live Tenki** and exits non-zero on failure. Token: `~/.config/tenki/config.yaml` (`auth_token:`) or `TENKI_AUTH_TOKEN`/`TENKI_API_KEY`. Build v0.6 with the official **`@tenkicloud/sandbox`** npm SDK (self-contained). Clean up any sandbox a verify creates.

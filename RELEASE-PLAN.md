@@ -2,12 +2,12 @@
 
 Milestones from [ROADMAP.md](ROADMAP.md), grouped into releases. A PM council (reach / effort / strategic-fit lenses) reviews and refines this; `STATE.md` tracks live progress. The bar is unchanged: **every example runs on Tenki and proves it in `verify.mjs` (CI-gated).**
 
-## v0.6 — self-contained quickstarts (build now, fully verifiable)
-JS + the official `@tenkicloud/sandbox` npm SDK + the Tenki token. No unpublished deps, no extra secrets → a subagent can build *and* green these today.
-- `files-in-a-sandbox` — read / write / list / upload / download
-- `expose-a-port` — run a web server, get a public preview URL
-- `snapshots-pause-resume` — save state, resume later
-- `e2b-to-tenki-migration` — side-by-side E2B↔Tenki + a mapping table (feeds the Startup-Program switcher pitch)
+## v0.6 — self-contained quickstarts ✅ SHIPPED (Jul 21)
+JS + the official `@tenkicloud/sandbox` npm SDK + the Tenki token. Built by a worktree-builder fan-out, each **verified end-to-end against live Tenki** (re-run independently before merge).
+- ✅ `files-in-a-sandbox` — write → read back → list
+- ✅ `expose-a-port` — web server → `exposePort` → public preview URL (host GET 200 confirmed)
+- ✅ `snapshots-pause-resume` — create → write → pause/snapshot → resume → marker survived
+- ✅ `e2b-to-tenki-migration` — side-by-side E2B↔Tenki + a mapping table (feeds the Startup-Program switcher pitch)
 
 ## v0.7 — top framework cookbooks
 - ⭐ `vercel-ai-sdk` — Tenki as the AI SDK's `experimental_sandbox` (reuses `tenki-eve-sandbox`'s session interface). *Dep: publish/inline the session impl.*

@@ -30,9 +30,9 @@ The highest-value next examples. Ranked by reach × fit × effort (validated Jul
 | Example | What it shows | Template | Status |
 |---|---|---|---|
 | Run code in a sandbox | Boot → run → output → dispose (the core loop) | — | ✅ |
-| Files in a sandbox | read / write / list / upload / download | `run-code-in-a-sandbox` | 📋 |
-| Expose a port / preview URL | Run a web server in a sandbox, get a public URL | `run-code-in-a-sandbox` | 📋 |
-| Snapshots & pause/resume | Save state, resume a sandbox later | `run-code-in-a-sandbox` | 📋 |
+| Files in a sandbox | read / write / list | — | ✅ `files-in-a-sandbox` |
+| Expose a port / preview URL | Run a web server in a sandbox, get a public URL | — | ✅ `expose-a-port` |
+| Snapshots & pause/resume | Save state, resume a sandbox later | — | ✅ `snapshots-pause-resume` |
 | Runners quickstart | One-line `runs-on:` swap, sample workflow | new | 🔜 |
 | Build a sandbox template in CI | GitHub Action builds `.tenki/template.json` — **official `TenkiCloud/actions` exists** | new | 🔜 |
 | Code Reviewer quickstart | Add AI review to a repo; what a review looks like | new | 📋 |
@@ -59,7 +59,7 @@ The highest-value next examples. Ranked by reach × fit × effort (validated Jul
 
 | Guide | Template | Status |
 |---|---|---|
-| E2B → Tenki | `run-code-in-a-sandbox` | 🔜 |
+| E2B → Tenki | — | ✅ `e2b-to-tenki-migration` |
 | Modal → Tenki | `run-code-in-a-sandbox` | 📋 |
 | Daytona → Tenki | `run-code-in-a-sandbox` | 📋 |
 

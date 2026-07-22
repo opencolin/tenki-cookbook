@@ -15,6 +15,10 @@ A cookbook with broken examples is worse than no cookbook. This is the bar; see 
 | Example | What it shows |
 |---|---|
 | [run-code-in-a-sandbox](examples/run-code-in-a-sandbox/) | Boot a disposable microVM, run code, get the output, tear it down — the core loop |
+| [files-in-a-sandbox](examples/files-in-a-sandbox/) | Write, read back, and list files in a sandbox with the official SDK |
+| [expose-a-port](examples/expose-a-port/) | Run a web server in a sandbox and get a public preview URL |
+| [snapshots-pause-resume](examples/snapshots-pause-resume/) | Snapshot / pause a sandbox and resume it with state intact |
+| [e2b-to-tenki-migration](examples/e2b-to-tenki-migration/) | Moving from E2B → Tenki: side-by-side code + an API mapping table |
 | [langchain-code-interpreter](examples/langchain-code-interpreter/) | A LangChain agent that writes and runs code in a Tenki sandbox |
 | [crewai-code-interpreter](examples/crewai-code-interpreter/) | A CrewAI agent (Python) that runs code in a Tenki sandbox |
 | [eve-agent-on-tenki](examples/eve-agent-on-tenki/) | Run a Vercel Eve agent's sandbox on Tenki |
