@@ -19,7 +19,10 @@ A cookbook with broken examples is worse than no cookbook. This is the bar; see 
 | [expose-a-port](examples/expose-a-port/) | Run a web server in a sandbox and get a public preview URL |
 | [snapshots-pause-resume](examples/snapshots-pause-resume/) | Snapshot / pause a sandbox and resume it with state intact |
 | [e2b-to-tenki-migration](examples/e2b-to-tenki-migration/) | Moving from E2B → Tenki: side-by-side code + an API mapping table |
+| [run-code-python](examples/run-code-python/) | The core loop in Python, via the official `tenki-sandbox` PyPI SDK |
+| [vercel-ai-sdk](examples/vercel-ai-sdk/) | Tenki as the Vercel AI SDK's `experimental_sandbox` — the model's tools run in a microVM |
 | [langchain-code-interpreter](examples/langchain-code-interpreter/) | A LangChain agent that writes and runs code in a Tenki sandbox |
+| [langchain-python](examples/langchain-python/) | A LangChain (Python) agent with a Tenki code-execution tool |
 | [crewai-code-interpreter](examples/crewai-code-interpreter/) | A CrewAI agent (Python) that runs code in a Tenki sandbox |
 | [eve-agent-on-tenki](examples/eve-agent-on-tenki/) | Run a Vercel Eve agent's sandbox on Tenki |
 | [mcp-tenki-sandbox](examples/mcp-tenki-sandbox/) | Give Claude / Cursor a Tenki sandbox via the `tenki-mcp` MCP server (84 tools) |

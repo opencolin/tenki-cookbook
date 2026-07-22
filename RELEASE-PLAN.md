@@ -9,12 +9,11 @@ JS + the official `@tenkicloud/sandbox` npm SDK + the Tenki token. Built by a wo
 - ✅ `snapshots-pause-resume` — create → write → pause/snapshot → resume → marker survived
 - ✅ `e2b-to-tenki-migration` — side-by-side E2B↔Tenki + a mapping table (feeds the Startup-Program switcher pitch)
 
-## v0.7 — top framework cookbooks
-- ⭐ `vercel-ai-sdk` — Tenki as the AI SDK's `experimental_sandbox` (reuses `tenki-eve-sandbox`'s session interface). *Dep: publish/inline the session impl.*
-- `smolagents` — a Tenki executor mirroring `remote_executors.py` (E2B/Docker). *Python.*
-- `crewai` — a crew with a Tenki code tool. *Python.*
-- `langchain-python` — port the JS code-interpreter to Python. *Python.*
-- *Blocker to clear first: the CI harness runs Node `verify.mjs` only — add `verify.py` support (small change to `scripts/run-all.mjs` + the workflow).*
+## v0.7 — top framework cookbooks + Python on-ramp (mostly SHIPPED Jul 21)
+- ✅ ⭐ `vercel-ai-sdk` — a self-contained adapter making a Tenki sandbox satisfy the AI SDK's `experimental_sandbox` (built directly on `@tenkicloud/sandbox`, no eve dep). Verified against live Tenki (no LLM key).
+- ✅ `run-code-python` — the core loop in Python via the official **`tenki-sandbox` PyPI SDK**. **This cleared the "Python on-ramp" blocker:** Python examples ship a `verify.mjs` shim that runs `verify.py`, so the Node CI harness runs them unchanged.
+- ✅ `langchain-python` — LangChain (Python) agent with a Tenki code tool. Verified live.
+- 🔜 `smolagents` — a Tenki executor mirroring `remote_executors.py` (now unblocked by the Python on-ramp).
 
 ## v0.8 — more frameworks + migrations
 - `autogen-ag2` (Tenki `CommandLineCodeExecutor`) · `openai-agents-sdk` · `llamaindex` · `pydantic-ai` · `google-adk`

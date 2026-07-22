@@ -42,9 +42,9 @@ The highest-value next examples. Ranked by reach × fit × effort (validated Jul
 
 | Framework | Stars | What it shows | Template | Status |
 |---|---|---|---|---|
-| **⭐ Vercel AI SDK** | 25.7k | Tenki as the AI SDK's `experimental_sandbox` — reuses `eve-agent-on-tenki`'s session logic | `eve-agent-on-tenki` | 🔜 top pick |
+| **⭐ Vercel AI SDK** | 25.7k | Tenki as the AI SDK's `experimental_sandbox` — the model's tools run in a microVM | — | ✅ `vercel-ai-sdk` |
 | LangChain (JS) | 15k+ | Code-interpreter agent | — | ✅ |
-| LangChain (Python) | 100k+ | Same, Python | `langchain-code-interpreter` | 🔜 |
+| LangChain (Python) | 100k+ | Same, Python | — | ✅ `langchain-python` |
 | smolagents | 28.5k | `CodeAgent` + a Tenki executor (`remote_executors.py` seam) | `langchain-code-interpreter` | 🔜 |
 | CrewAI | 55.9k | Crew with a Tenki code tool | — | ✅ `crewai-code-interpreter` |
 | **OpenHands** | 81.6k | A Tenki **Runtime** (its backends: Docker/E2B/Daytona/Modal/Remote) — the open coding agent | new | 📋 big |
@@ -81,7 +81,7 @@ The highest-value next examples. Ranked by reach × fit × effort (validated Jul
 ### Language coverage
 | Example | What it shows | Status |
 |---|---|---|
-| Run code (Python) | The core loop, Python | 🔜 |
+| Run code (Python) | The core loop, Python — official `tenki-sandbox` PyPI SDK | ✅ `run-code-python` |
 | Run code (Go) | The core loop, Go — **official `tenki-sdk-go` exists**, build on it | 📋 |
 
 ## Sourcing note (Jul 21)
