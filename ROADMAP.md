@@ -12,16 +12,17 @@ The backlog of examples, ranked and categorized. Pick the next thing off **Start
   - `eve-agent-on-tenki` — a pluggable sandbox backend for a framework
 
 ## Start here (recommended order)
-The highest-value, fully self-contained next examples — no unpublished deps, big audiences:
+The highest-value next examples. Ranked by reach × fit × effort (validated Jul 21 — see [Sourcing note](#sourcing-note-jul-21)).
 
 | # | Example | Why | Template |
 |---|---|---|---|
-| 1 | **LangChain code interpreter (Python)** | LangChain's biggest audience is Python; mirror the JS one | `langchain-code-interpreter` (port to Python) |
-| 2 | **CrewAI + Tenki** | Popular multi-agent framework; a crew that runs code in a sandbox | `langchain-code-interpreter` |
-| 3 | **smolagents + Tenki** | HuggingFace `CodeAgent` with a Tenki executor; high reach | `langchain-code-interpreter` |
-| 4 | **E2B → Tenki migration guide** | Arms the Startup-Program switcher pitch; side-by-side code | `run-code-in-a-sandbox` |
-| 5 | **Give Claude / Cursor a Tenki sandbox (MCP)** | The broadest integration — any MCP agent | ✅ shipped → `mcp-tenki-sandbox` |
+| 1 | **⭐ Vercel AI SDK + Tenki** | 25.7k★ — THE TypeScript AI toolkit. Its `experimental_sandbox` wants the **same run/spawn/file interface `tenki-eve-sandbox` already implements** → a thin adapter, not a rebuild. Biggest reach, least new code. | `eve-agent-on-tenki` (same interface) |
+| 2 | **LangChain code interpreter (Python)** | LangChain's biggest audience is Python; mirror the JS one | `langchain-code-interpreter` (port to Python) |
+| 3 | **smolagents + Tenki** | 28.5k★ HF `CodeAgent`; `remote_executors.py` (E2B/Docker) is the seam — add a Tenki executor | `langchain-code-interpreter` |
+| 4 | **CrewAI + Tenki** | 55.9k★ multi-agent framework; a crew that runs code in a sandbox | `langchain-code-interpreter` |
+| 5 | **E2B → Tenki migration guide** | Arms the Startup-Program switcher pitch; side-by-side code | `run-code-in-a-sandbox` |
 | 6 | **Runners quickstart** | The one-line CI swap; a sample workflow file | new (docs + workflow) |
+| 7 | **OpenHands runtime (bigger lift)** | 81.6k★ — the open coding agent. A Tenki Runtime alongside its Docker/E2B/Daytona/Modal. Highest reach of all, but real work (Python runtime impl). | new |
 
 ## Full backlog
 
@@ -39,16 +40,19 @@ The highest-value, fully self-contained next examples — no unpublished deps, b
 ### Framework cookbooks
 *Each is that framework's idiomatic "run code in a sandbox" (a tool or backend). Mirrors a row on the be-the-backend list.*
 
-| Framework | What it shows | Template | Status |
-|---|---|---|---|
-| LangChain (JS) | Code-interpreter agent | — | ✅ |
-| LangChain (Python) | Same, Python | `langchain-code-interpreter` | 🔜 |
-| CrewAI | Crew with a Tenki code tool | `langchain-code-interpreter` | 🔜 |
-| **Composio** | Agent with Tenki sandbox tools (official `@tenkicloud/composio-tools`) | — | ✅ `composio-tenki` |
-| smolagents | `CodeAgent` with a Tenki executor | `langchain-code-interpreter` | 🔜 |
-| OpenAI Agents SDK | Code-execution tool | `langchain-code-interpreter` | 📋 |
-| Vercel Eve | Tenki sandbox backend | — | ✅ |
-| Pydantic AI · LlamaIndex · AutoGen · Google ADK | Code tool per framework | `langchain-code-interpreter` | 📋 |
+| Framework | Stars | What it shows | Template | Status |
+|---|---|---|---|---|
+| **⭐ Vercel AI SDK** | 25.7k | Tenki as the AI SDK's `experimental_sandbox` — reuses `eve-agent-on-tenki`'s session logic | `eve-agent-on-tenki` | 🔜 top pick |
+| LangChain (JS) | 15k+ | Code-interpreter agent | — | ✅ |
+| LangChain (Python) | 100k+ | Same, Python | `langchain-code-interpreter` | 🔜 |
+| smolagents | 28.5k | `CodeAgent` + a Tenki executor (`remote_executors.py` seam) | `langchain-code-interpreter` | 🔜 |
+| CrewAI | 55.9k | Crew with a Tenki code tool | `langchain-code-interpreter` | 🔜 |
+| **OpenHands** | 81.6k | A Tenki **Runtime** (its backends: Docker/E2B/Daytona/Modal/Remote) — the open coding agent | new | 📋 big |
+| **Composio** | — | Agent with Tenki sandbox tools (official `@tenkicloud/composio-tools`) | — | ✅ `composio-tenki` |
+| OpenAI Agents SDK | 15k+ | Code-execution tool | `langchain-code-interpreter` | 📋 |
+| Vercel Eve | — | Tenki sandbox backend | — | ✅ |
+| AutoGen / **ag2** | 60k / 4.8k | A Tenki `CommandLineCodeExecutor` (mirrors their Docker/Jupyter executors) | `langchain-code-interpreter` | 📋 |
+| Pydantic AI · LlamaIndex · Google ADK | — | Code tool per framework | `langchain-code-interpreter` | 📋 |
 
 ### Migration guides
 *"Here's your E2B/Modal/Daytona code, here's the Tenki equivalent" + a mapping table + the switcher pitch. Feeds the Startup-Program switcher campaign.*
@@ -67,6 +71,7 @@ The highest-value, fully self-contained next examples — no unpublished deps, b
 | Batch model-eval | fan out N disposable sandboxes | `run-code-in-a-sandbox` | 📋 |
 | CI for AI-generated code | run → test → review (our differentiated opinion) | `run-code-in-a-sandbox` | 📋 |
 | Data-analysis agent | code interpreter over a CSV | `langchain-code-interpreter` | 📋 |
+| Run a Jupyter notebook | [Papermill](https://github.com/nteract/papermill) (6.5k★) parameterizes + executes a notebook in a disposable sandbox — the data-science on-ramp | `run-code-in-a-sandbox` | 📋 |
 
 ### MCP
 | Example | What it shows | Status |
@@ -78,6 +83,18 @@ The highest-value, fully self-contained next examples — no unpublished deps, b
 |---|---|---|
 | Run code (Python) | The core loop, Python | 🔜 |
 | Run code (Go) | The core loop, Go — **official `tenki-sdk-go` exists**, build on it | 📋 |
+
+## Sourcing note (Jul 21)
+How candidates get onto this list — and how they get rejected:
+
+- **The fit test first:** does the project's agent *write/run code* that benefits from a disposable microVM? If it only calls APIs (payments, CRM, email), a sandbox adds nothing — skip it. (This is why a batch of Hermes *business*-hackathon winners was rejected — see `built-on-tenki`.)
+- **Then validate the seam + reach** (don't add names on faith): confirm the framework has a real executor/sandbox plug-point, and check stars/recency. Findings this round:
+  - **⭐ Vercel AI SDK** (25.7k★, pushed daily) — the highest-leverage add we were missing. Its `experimental_sandbox` takes the *same* run/spawn/file interface `tenki-eve-sandbox` already implements → most reach, least new code. **Build next.**
+  - **OpenHands** (81.6k★) — the biggest open coding agent; a pluggable `Runtime`. Highest ceiling, bigger lift.
+  - **smolagents** (28.5k★) — `remote_executors.py` (E2B/Docker) confirmed as the seam; small PR.
+  - **CrewAI** (55.9k★), **AutoGen/ag2** (60k★ brand) — real code-executor seams.
+  - **Papermill** (6.5k★) — opens the data-science/notebook lane.
+- **Rejected / low-priority:** Aider (47.6k★ but runs locally — no clean pluggable-sandbox seam) · Qwen-Agent (has a code interpreter but ~4 months stale). Reach without a seam ≠ a good example.
 
 ## Notes & dependencies
 - **`langchain-code-interpreter`, `run-code-in-a-sandbox`** use only published packages (LangChain + `@tenkicloud/sandbox`) — self-contained, work today.
