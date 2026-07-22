@@ -52,7 +52,8 @@ The highest-value next examples. Ranked by reach × fit × effort (validated Jul
 | OpenAI Agents SDK | 15k+ | Code-execution tool | — | ✅ `openai-agents-sdk` |
 | Vercel Eve | — | Tenki sandbox backend | — | ✅ |
 | AutoGen / **ag2** | 60k / 4.8k | A Tenki `CommandLineCodeExecutor` (mirrors their Docker/Jupyter executors) | `langchain-code-interpreter` | 📋 |
-| Pydantic AI · LlamaIndex · Google ADK | — | Code tool per framework | `langchain-code-interpreter` | 📋 |
+| LlamaIndex | 50k | `FunctionTool` that runs code in a Tenki sandbox | — | ✅ `llamaindex` |
+| Pydantic AI · Google ADK | — | Code tool per framework | `langchain-code-interpreter` | 📋 |
 
 ### Migration guides
 *"Here's your E2B/Modal/Daytona code, here's the Tenki equivalent" + a mapping table + the switcher pitch. Feeds the Startup-Program switcher campaign.*

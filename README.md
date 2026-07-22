@@ -30,6 +30,7 @@ A cookbook with broken examples is worse than no cookbook. This is the bar; see 
 | [covalent-tenki](examples/covalent-tenki/) | A Covalent workflow where each task runs in its own Tenki microVM, via the official `covalent-tenki-plugin` |
 | [smolagents](examples/smolagents/) | A HuggingFace smolagents `CodeAgent` whose generated Python runs in a Tenki sandbox, via a custom `RemotePythonExecutor` |
 | [openai-agents-sdk](examples/openai-agents-sdk/) | An OpenAI Agents SDK agent with a tool that runs code in a Tenki sandbox |
+| [llamaindex](examples/llamaindex/) | A LlamaIndex agent with a `FunctionTool` that runs code in a Tenki sandbox |
 | [modal-to-tenki-migration](examples/modal-to-tenki-migration/) | Moving from Modal → Tenki: side-by-side code + an API mapping table |
 | [daytona-to-tenki-migration](examples/daytona-to-tenki-migration/) | Moving from Daytona → Tenki: side-by-side code + an API mapping table |
 
