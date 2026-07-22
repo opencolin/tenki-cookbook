@@ -24,8 +24,10 @@ class TenkiCodeInterpreter(BaseTool):
 ```bash
 uv venv                                   # or: python3.11 -m venv .venv
 uv pip install -r requirements.txt        # tenki-sandbox + crewai
-export TENKI_AUTH_TOKEN=...               # from `tenki login` (~/.config/tenki/config.yaml)
+export TENKI_AUTH_TOKEN=...               # see the auth note below
 ```
+
+**Auth note.** The Python SDK authenticates cleanly with a **`tk_` API key** (`export TENKI_AUTH_TOKEN=tk_…`). A `tenki login` browser session token also works, but — unlike the Node SDK — the Python SDK won't auto-detect it; pass it as **`cookie:<token>`** so it's sent as a cookie (`verify.py` does this for you). It's an SDK gap, not yours.
 
 ## Verify it (no LLM needed)
 

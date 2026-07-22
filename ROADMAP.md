@@ -19,7 +19,7 @@ The highest-value next examples. Ranked by reach × fit × effort (validated Jul
 | 1 | **⭐ Vercel AI SDK + Tenki** | 25.7k★ — THE TypeScript AI toolkit. Its `experimental_sandbox` wants the **same run/spawn/file interface `tenki-eve-sandbox` already implements** → a thin adapter, not a rebuild. Biggest reach, least new code. | `eve-agent-on-tenki` (same interface) |
 | 2 | **LangChain code interpreter (Python)** | LangChain's biggest audience is Python; mirror the JS one | `langchain-code-interpreter` (port to Python) |
 | 3 | **smolagents + Tenki** | 28.5k★ HF `CodeAgent`; `remote_executors.py` (E2B/Docker) is the seam — add a Tenki executor | `langchain-code-interpreter` |
-| 4 | **CrewAI + Tenki** | 55.9k★ multi-agent framework; a crew that runs code in a sandbox | `langchain-code-interpreter` |
+| ~~4~~ | ~~**CrewAI + Tenki**~~ | ✅ **shipped** → `crewai-code-interpreter` (55.9k★; a crew that runs code in a Tenki sandbox) | done |
 | 5 | **E2B → Tenki migration guide** | Arms the Startup-Program switcher pitch; side-by-side code | `run-code-in-a-sandbox` |
 | 6 | **Runners quickstart** | The one-line CI swap; a sample workflow file | new (docs + workflow) |
 | 7 | **OpenHands runtime (bigger lift)** | 81.6k★ — the open coding agent. A Tenki Runtime alongside its Docker/E2B/Daytona/Modal. Highest reach of all, but real work (Python runtime impl). | new |
@@ -46,7 +46,7 @@ The highest-value next examples. Ranked by reach × fit × effort (validated Jul
 | LangChain (JS) | 15k+ | Code-interpreter agent | — | ✅ |
 | LangChain (Python) | 100k+ | Same, Python | `langchain-code-interpreter` | 🔜 |
 | smolagents | 28.5k | `CodeAgent` + a Tenki executor (`remote_executors.py` seam) | `langchain-code-interpreter` | 🔜 |
-| CrewAI | 55.9k | Crew with a Tenki code tool | `langchain-code-interpreter` | 🔜 |
+| CrewAI | 55.9k | Crew with a Tenki code tool | — | ✅ `crewai-code-interpreter` |
 | **OpenHands** | 81.6k | A Tenki **Runtime** (its backends: Docker/E2B/Daytona/Modal/Remote) — the open coding agent | new | 📋 big |
 | **Composio** | — | Agent with Tenki sandbox tools (official `@tenkicloud/composio-tools`) | — | ✅ `composio-tenki` |
 | OpenAI Agents SDK | 15k+ | Code-execution tool | `langchain-code-interpreter` | 📋 |

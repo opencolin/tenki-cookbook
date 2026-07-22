@@ -29,6 +29,14 @@ if not token:
     print("No token. Set TENKI_AUTH_TOKEN, or run `tenki login`.")
     sys.exit(1)
 
+# The Python SDK (unlike the Node SDK) doesn't auto-handle a bare browser session
+# token — it sends anything without a known prefix as `Authorization: Bearer`,
+# which the server rejects. A `tk_` API key works as-is; a `tenki login` session
+# token must be sent as a cookie, which the SDK does when you prefix it `cookie:`.
+# (SDK auth gap — see the pip-tenki / Python-SDK-auth issue.)
+if not token.startswith(("tk_", "ory_st_", "cookie:")):
+    token = f"cookie:{token}"
+
 opts = {"auth_token": token, "cpu_cores": 1, "memory_mb": 1024}
 if cfg("current_project_id"):
     opts["project_id"] = cfg("current_project_id")
