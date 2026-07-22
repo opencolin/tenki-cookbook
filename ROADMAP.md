@@ -67,7 +67,7 @@ The highest-value next examples. Ranked by reach × fit × effort (validated Jul
 | Use-case | What it shows | Template | Status |
 |---|---|---|---|
 | Build an AI coding agent | write → run → iterate in a sandbox | `langchain-code-interpreter` | 📋 |
-| **Covalent workflows on Tenki** | each task/electron in a disposable microVM — **official `covalent-tenki-plugin` exists**, wrap it | `run-code-in-a-sandbox` | 🔜 |
+| **Covalent workflows on Tenki** | each task/electron in a disposable microVM (official `covalent-tenki-plugin`) | — | ✅ `covalent-tenki` |
 | Batch model-eval | fan out N disposable sandboxes | `run-code-in-a-sandbox` | 📋 |
 | CI for AI-generated code | run → test → review (our differentiated opinion) | `run-code-in-a-sandbox` | 📋 |
 | Data-analysis agent | code interpreter over a CSV | `langchain-code-interpreter` | 📋 |

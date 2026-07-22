@@ -20,6 +20,7 @@ A cookbook with broken examples is worse than no cookbook. This is the bar; see 
 | [eve-agent-on-tenki](examples/eve-agent-on-tenki/) | Run a Vercel Eve agent's sandbox on Tenki |
 | [mcp-tenki-sandbox](examples/mcp-tenki-sandbox/) | Give Claude / Cursor a Tenki sandbox via the `tenki-mcp` MCP server (84 tools) |
 | [composio-tenki](examples/composio-tenki/) | A Composio agent that runs code in a Tenki sandbox, via the official `@tenkicloud/composio-tools` toolkit |
+| [covalent-tenki](examples/covalent-tenki/) | A Covalent workflow where each task runs in its own Tenki microVM, via the official `covalent-tenki-plugin` |
 
 *(More landing here — more framework cookbooks (Vercel AI SDK, smolagents), migration guides, use-cases. See the backlog in [CONTRIBUTING.md](CONTRIBUTING.md).)*
 
