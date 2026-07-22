@@ -28,6 +28,10 @@ A cookbook with broken examples is worse than no cookbook. This is the bar; see 
 | [mcp-tenki-sandbox](examples/mcp-tenki-sandbox/) | Give Claude / Cursor a Tenki sandbox via the `tenki-mcp` MCP server (84 tools) |
 | [composio-tenki](examples/composio-tenki/) | A Composio agent that runs code in a Tenki sandbox, via the official `@tenkicloud/composio-tools` toolkit |
 | [covalent-tenki](examples/covalent-tenki/) | A Covalent workflow where each task runs in its own Tenki microVM, via the official `covalent-tenki-plugin` |
+| [smolagents](examples/smolagents/) | A HuggingFace smolagents `CodeAgent` whose generated Python runs in a Tenki sandbox, via a custom `RemotePythonExecutor` |
+| [openai-agents-sdk](examples/openai-agents-sdk/) | An OpenAI Agents SDK agent with a tool that runs code in a Tenki sandbox |
+| [modal-to-tenki-migration](examples/modal-to-tenki-migration/) | Moving from Modal → Tenki: side-by-side code + an API mapping table |
+| [daytona-to-tenki-migration](examples/daytona-to-tenki-migration/) | Moving from Daytona → Tenki: side-by-side code + an API mapping table |
 
 *(More landing here — more framework cookbooks (Vercel AI SDK, smolagents), migration guides, use-cases. See the backlog in [CONTRIBUTING.md](CONTRIBUTING.md).)*
 

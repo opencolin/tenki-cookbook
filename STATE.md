@@ -20,9 +20,14 @@ The `cookbook-v07` workflow (3 worktree builders, 0 errors) shipped, each **re-v
 - ✅ `run-code-python` — core loop in Python via the **`tenki-sandbox` PyPI SDK**. **Cleared the Python on-ramp:** a `verify.mjs`→`verify.py` shim runs under the existing Node CI harness. Local Python examples need a 3.10+ venv (`uv venv --python 3.12`, then `uv pip install -r requirements.txt` — note: `uv venv` has no pip; use `uv pip`).
 - ✅ `langchain-python` — LangChain (Python) agent + Tenki code tool.
 
+## v0.8 — partly SHIPPED (Jul 21, third orchestration)
+The `cookbook-v08` workflow (4 worktree builders, 0 errors), each re-verified against live Tenki before merge (all PASS):
+- ✅ `smolagents` (stateful `RemotePythonExecutor` via a tiny in-sandbox kernel) · ✅ `openai-agents-sdk` · ✅ `modal-to-tenki-migration` · ✅ `daytona-to-tenki-migration`.
+
+**Running total: 11 verified examples shipped** across v0.6 (4) + v0.7 (3) + v0.8 (4), on top of the pre-existing 7.
+
 ## Next up
-- **v0.7 remainder:** `smolagents` (now unblocked by the Python on-ramp).
-- **v0.8:** Modal/Daytona migrations, AutoGen/ag2, LlamaIndex, Pydantic AI, Google ADK, OpenAI Agents SDK, Runners/Code-Reviewer quickstarts.
+- **v0.8 remainder (buildable):** `autogen-ag2`, `llamaindex`, `pydantic-ai`, `google-adk`, `runners-quickstart`, `code-reviewer-quickstart`.
 - **v0.9:** multi-step use-cases (coding agent, data-analysis, batch-eval, CI-for-AI-code, Papermill).
 - **v1.0 — needs Colin:** publish `tenki-eve-sandbox` + `tenki-mcp` to npm (unblocks `eve-agent-on-tenki` + `mcp-tenki-sandbox` CI) and wire `COMPOSIO_API_KEY` as a CI secret. These are the hard external blockers the autonomous loop can't clear.
 - **v2.0:** OpenHands runtime, Go, streaming.

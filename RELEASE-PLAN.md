@@ -15,9 +15,11 @@ JS + the official `@tenkicloud/sandbox` npm SDK + the Tenki token. Built by a wo
 - ✅ `langchain-python` — LangChain (Python) agent with a Tenki code tool. Verified live.
 - 🔜 `smolagents` — a Tenki executor mirroring `remote_executors.py` (now unblocked by the Python on-ramp).
 
-## v0.8 — more frameworks + migrations
-- `autogen-ag2` (Tenki `CommandLineCodeExecutor`) · `openai-agents-sdk` · `llamaindex` · `pydantic-ai` · `google-adk`
-- `modal-to-tenki` · `daytona-to-tenki` migration guides
+## v0.8 — more frameworks + migrations (partly SHIPPED Jul 21)
+- ✅ `smolagents` — a Tenki `RemotePythonExecutor` (stateful, via a tiny in-sandbox kernel). Verified live.
+- ✅ `openai-agents-sdk` — agent tool that runs code in a Tenki sandbox. Verified live.
+- ✅ `modal-to-tenki-migration` · ✅ `daytona-to-tenki-migration` — the E2B guide cloned for Modal/Daytona. Verified live.
+- 🔜 remaining: `autogen-ag2` (Tenki `CommandLineCodeExecutor`) · `llamaindex` · `pydantic-ai` · `google-adk`.
 
 ## v0.9 — use-cases (multi-step, showcase the "run→test→review" opinion)
 - `coding-agent` (write → run → iterate) · `data-analysis-agent` (CSV code-interpreter) · `batch-model-eval` (fan out N disposable sandboxes) · `ci-for-ai-code` (run → test → review) · `jupyter-papermill` (data-science lane) · `covalent-workflows` (wrap the official plugin)
