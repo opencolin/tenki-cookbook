@@ -13,6 +13,11 @@ on:
 jobs:
   verify:
     runs-on: ubuntu-latest
+    # Secrets (TENKI_API_KEY, and optional third-party keys) live in the `Test`
+    # environment. Without this line the job reads only repo-level secrets and gets
+    # an empty token, so every example fails auth. The environment has no protection
+    # rules, so this doesn't gate the run.
+    environment: Test
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
