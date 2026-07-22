@@ -26,7 +26,9 @@ jobs:
           TENKI_API_KEY: ${{ secrets.TENKI_API_KEY }}
         run: |
           set -e
-          for d in examples/*/; do
+          # benchmarks/ hold heavier recipes (real eval images) but obey the same
+          # one rule: a verify.mjs that proves the Tenki-facing part in CI.
+          for d in examples/*/ benchmarks/*/; do
             if [ -f "${d}verify.mjs" ]; then
               echo "== ${d} =="
               ( cd "$d"
