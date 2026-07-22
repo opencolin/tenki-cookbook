@@ -35,6 +35,14 @@ A cookbook with broken examples is worse than no cookbook. This is the bar; see 
 
 *(More landing here — more framework cookbooks (Vercel AI SDK, smolagents), migration guides, use-cases. See the backlog in [CONTRIBUTING.md](CONTRIBUTING.md).)*
 
+## Benchmarks
+
+Standard coding benchmarks, run on Tenki microVMs and graded with each benchmark's **official** harness — so scores are comparable, not a lookalike. Heavier than the examples (real eval images), same one rule (a no-model-key `verify.mjs` in CI). See [benchmarks/](benchmarks/).
+
+| Benchmark | What it measures |
+|---|---|
+| [swe-bench](benchmarks/swe-bench/) | Fix a real GitHub issue so the repo's hidden tests pass — SWE-bench Lite / Verified / full, official images + grading, Docker-in-microVM |
+
 ## Official integrations
 
 First-party Tenki integrations that ship as their own packages on [github.com/tenkicloud](https://github.com/tenkicloud) — install and use them directly:

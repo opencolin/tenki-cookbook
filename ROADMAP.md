@@ -84,6 +84,16 @@ The highest-value next examples. Ranked by reach × fit × effort (validated Jul
 | Run code (Python) | The core loop, Python — official `tenki-sandbox` PyPI SDK | ✅ `run-code-python` |
 | Run code (Go) | The core loop, Go — **official `tenki-sdk-go` exists**, build on it | 📋 |
 
+### Benchmarks
+*Standard coding benchmarks on Tenki, graded with each benchmark's official harness (comparable scores, not a lookalike). Heavier than examples; same one rule via a no-model-key oracle `verify.mjs`. Live in [`benchmarks/`](benchmarks/), not `examples/`.*
+
+| Benchmark | What it measures | Notes | Status |
+|---|---|---|---|
+| **SWE-bench** | Fix a real GitHub issue → hidden tests pass | Official per-instance images + grader, Docker-in-microVM; oracle verify | ✅ `benchmarks/swe-bench` |
+| SWE-bench family | Verified / Multilingual / SWE-Gym / R2E-Gym / SWE-rebench | Same harness — a `DATASETS` row each (+ `image_name()` if the prefix differs) | 📋 |
+| Commit0 | Build a library from a spec so its tests pass | Different shape (build-from-spec, no prebuilt image) — its own recipe | 📋 |
+| TDD-bench | Write the tests for a real change | Inverted: model authors tests, gold patch must pass them | 📋 |
+
 ## Sourcing note (Jul 21)
 How candidates get onto this list — and how they get rejected:
 
