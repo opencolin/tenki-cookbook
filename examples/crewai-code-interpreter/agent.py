@@ -24,10 +24,12 @@ def cfg(key):
 
 
 opts = {"cpu_cores": 1, "memory_mb": 1024}
-if cfg("current_project_id"):
-    opts["project_id"] = cfg("current_project_id")
-if cfg("current_workspace_id"):
-    opts["workspace_id"] = cfg("current_workspace_id")
+project_id = os.environ.get("TENKI_PROJECT_ID") or cfg("current_project_id")
+workspace_id = os.environ.get("TENKI_WORKSPACE_ID") or cfg("current_workspace_id")
+if project_id:
+    opts["project_id"] = project_id
+if workspace_id:
+    opts["workspace_id"] = workspace_id
 
 with Sandbox.create(**opts) as sandbox:
     analyst = Agent(
