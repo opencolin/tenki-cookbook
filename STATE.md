@@ -36,6 +36,11 @@ The `cookbook-v08` workflow (4 worktree builders, 0 errors), each re-verified ag
 - The live `~/.config/tenki` token is a **session token** (not `tk_`); the **JS** SDK handles it, but the **Python** `tenki-sandbox` SDK needs it sent as a cookie — the shipped Python verifies handle this (prefix `cookie:`). A `tk_` API key works everywhere as-is.
 - `exec(cmd, { args })` / `sb.exec("py","-c",code)` do **not** shell-split — route shell syntax through `sh -c`.
 
+## Jul 24 — env-fix + coordination
+- **✅ Python env-fix (ops [#42](https://github.com/opencolin/tenki-colin/issues/42)):** a re-login dropped `current_project_id`/`current_workspace_id` from `~/.config/tenki/config.yaml`, breaking every config-only Python example. All Python examples now resolve project/workspace from **`TENKI_PROJECT_ID`/`TENKI_WORKSPACE_ID` env → config**. Re-verified GREEN on live Tenki (run-code-python, langchain-python, crewai, smolagents, modal). Commit `46b1690`.
+- **⚠️ CI dependency (owner: CI maintainer):** the SDK requires `project_id`; the CI `TENKI_API_KEY` won't carry it → **add `TENKI_PROJECT_ID` + `TENKI_WORKSPACE_ID` as repo variables** or the Python examples go red in CI. (`.github/workflows/verify.yml` also needs those in `env:`.)
+- **Coordination:** this buildout is now tracked as ops #42 (`agent:claimed`, Claude, branch `claude/cookbook-buildout`). GitHub Issues are the source of truth; update #42, not just this file.
+
 ## The bar (do not weaken)
 Every example ships a `verify.mjs` that runs against **live Tenki** and exits non-zero on failure. Token: `~/.config/tenki/config.yaml` (`auth_token:`) or `TENKI_AUTH_TOKEN`/`TENKI_API_KEY`. Build v0.6 with the official **`@tenkicloud/sandbox`** npm SDK (self-contained). Clean up any sandbox a verify creates.
 
