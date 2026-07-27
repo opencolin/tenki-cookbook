@@ -70,7 +70,7 @@ New examples welcome. Start with **[CONTRIBUTING.md](CONTRIBUTING.md)** (setup +
 
 ## Related
 
-- [tenki-mcp](https://github.com/opencolin/tenki-mcp) — Tenki as an MCP server for any agent
+- [tenki-mcp](https://github.com/LuxorLabs/tenki-mcp) — Tenki as an MCP server for any agent
 - [tenki-eve-sandbox](https://github.com/opencolin/tenki-eve-sandbox) — Tenki backend for Vercel Eve
 - [n8n-nodes-tenki](https://github.com/opencolin/n8n-nodes-tenki) — Tenki as an n8n node
 
