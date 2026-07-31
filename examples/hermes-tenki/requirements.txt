@@ -1,0 +1,25 @@
+# Tenki Sandbox SDK.
+#
+# Hermes PR #1 pins tenki-sandbox==0.3.1 (pyproject extra `tenki` and
+# tools/lazy_deps.py "terminal.tenki"), but 0.3.1 was never published to PyPI --
+# https://pypi.org/pypi/tenki-sandbox/0.3.1/json returns 404, so following the
+# PR verbatim fails to install. Published versions: 0.1.0, 0.1.1, 0.3.5, 0.3.6,
+# 0.4.0. Every SDK call tools/environments/tenki.py makes (Client.create with
+# cpu_cores/memory_mb/disk_size_gb/tags/metadata/image/sticky/
+# idle_timeout_minutes/pause_retention, Client.list/who_am_i/close,
+# Sandbox.exec/pause/resume/close/refresh/wait_ready/fs, SandboxFS.mkdir/
+# upload/download/write_bytes, CommandResult.exit_code/stdout_text/
+# stderr_text/check) exists in 0.4.0.
+tenki-sandbox==0.4.0
+
+# Hermes runtime deps needed to import and drive the terminal backend.
+# This is the whole list -- the backend does NOT need the full Hermes app
+# (no database, no gateway, no model provider, no agent loop).
+# tools/environments/tenki.py -> tools.environments.base + file_sync (stdlib only)
+# BaseEnvironment.execute()   -> tools.terminal_tool -> utils (needs requests, PyYAML)
+# FileSyncManager.sync()      -> tools.credential_files -> hermes_cli.config (needs PyYAML)
+PyYAML>=6.0
+requests>=2.31
+
+# Python >=3.10 required (tenki-sandbox requires-python >=3.10; the backend uses
+# PEP 604 `str | None` annotations at runtime).

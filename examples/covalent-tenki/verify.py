@@ -18,6 +18,12 @@ import os
 import sys
 
 from tenki_sandbox import Sandbox
+
+# Import covalent BEFORE the plugin. Importing the plugin first makes covalent's
+# entry-point scanner re-enter covalent_tenki_plugin.tenki mid-import and log a
+# scary-looking "Requested executor plugin TenkiExecutor was not found" WARNING.
+# It's harmless (the executor still constructs) but reads like a failure here.
+import covalent  # noqa: F401 -- import order matters, see above
 from covalent_tenki_plugin import TenkiExecutor  # proves the plugin installed + imports
 
 

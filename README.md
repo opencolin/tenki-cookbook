@@ -31,6 +31,8 @@ A cookbook with broken examples is worse than no cookbook. This is the bar; see 
 | [smolagents](examples/smolagents/) | A HuggingFace smolagents `CodeAgent` whose generated Python runs in a Tenki sandbox, via a custom `RemotePythonExecutor` |
 | [openai-agents-sdk](examples/openai-agents-sdk/) | An OpenAI Agents SDK agent with a tool that runs code in a Tenki sandbox |
 | [llamaindex](examples/llamaindex/) | A LlamaIndex agent with a `FunctionTool` that runs code in a Tenki sandbox |
+| [openhermit-tenki](examples/openhermit-tenki/) | An OpenHermit-style per-agent exec backend on Tenki — one microVM per agent, sticky sessions, pause/resume across gateway restarts |
+| [hermes-tenki](examples/hermes-tenki/) | The Hermes (Nous Research) agent's terminal backend on Tenki — a persistent cloud shell that pauses when idle and resumes intact (drives the open PR branch) |
 | [modal-to-tenki-migration](examples/modal-to-tenki-migration/) | Moving from Modal → Tenki: side-by-side code + an API mapping table |
 | [daytona-to-tenki-migration](examples/daytona-to-tenki-migration/) | Moving from Daytona → Tenki: side-by-side code + an API mapping table |
 

@@ -53,6 +53,8 @@ The highest-value next examples. Ranked by reach × fit × effort (validated Jul
 | Vercel Eve | — | Tenki sandbox backend | — | ✅ |
 | AutoGen / **ag2** | 60k / 4.8k | A Tenki `CommandLineCodeExecutor` (mirrors their Docker/Jupyter executors) | `langchain-code-interpreter` | 📋 |
 | LlamaIndex | 50k | `FunctionTool` that runs code in a Tenki sandbox | — | ✅ `llamaindex` |
+| **OpenHermit** | — | Per-agent Tenki exec backend — sticky sessions, pause/resume across gateway restarts (PR #239, merged) | `eve-agent-on-tenki` | ✅ `openhermit-tenki` |
+| **Hermes** (Nous) | — | Tenki terminal backend — a persistent cloud shell that pauses when idle, resumes intact (drives open PR #1) | `eve-agent-on-tenki` | ✅ `hermes-tenki` |
 | Pydantic AI · Google ADK | — | Code tool per framework | `langchain-code-interpreter` | 📋 |
 
 ### Migration guides
