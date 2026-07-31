@@ -39,6 +39,8 @@ covalent start          # the Covalent dispatcher
 python workflow.py      # dispatches; each task runs in a Tenki microVM
 ```
 
+> **422 heads-up (upstream Covalent, not Tenki):** `pip install -r requirements.txt` resolves to `covalent==0.240.0` + `requests` 2.34.x, where *any* `ct.dispatch()` returns `422 Unprocessable Entity` — the Covalent SDK posts the dispatch manifest with no `Content-Type: application/json`. `workflow.py` applies the plugin repo's five-line `APIClient.post` monkeypatch inline (in a clearly marked block) so it runs today; delete that block once upstream ships a fix.
+
 > **Cold start:** on the default Ubuntu image each task spends ~2–3 min bootstrapping a venv (`cloudpickle` + `covalent` + your `sandbox_requirements`). Point `TenkiExecutor(image=…)` at a prepared registry image to skip it, or batch small steps into fewer electrons. Also: your **local Python minor version must match the sandbox's** (3.12 on the default image) — tasks travel via `cloudpickle`.
 
 ## Verify (fast smoke check)

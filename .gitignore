@@ -6,3 +6,8 @@ package-lock.json
 .venv/
 __pycache__/
 .claude/
+# runtime artifacts from examples
+.tenki-*.json
+*.bak
+# hermes-tenki checks out the open PR branch here at verify time
+examples/hermes-tenki/hermes-agent/
